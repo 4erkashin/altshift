@@ -1,3 +1,4 @@
+import { AppHeader } from '@/components/app-header/AppHeader';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
@@ -57,7 +58,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${fixelText.variable} ${fixelDisplay.variable}`}>
-        {children}
+        <AppHeader />
+
+        <div>{children}</div>
       </body>
     </html>
   );
