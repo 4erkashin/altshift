@@ -1,4 +1,4 @@
-import { default as Logo } from "./logo.svg";
+import { default as Logo } from './logo.svg';
 
 export default function Home() {
   console.log(Logo);
