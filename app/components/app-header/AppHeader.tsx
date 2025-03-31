@@ -6,9 +6,7 @@ export const AppHeader = () => {
     <div>
       <Logo />
       <LogoText />
-      <pre>0/5 applications generated</pre>
-      <pre>5 dots</pre>
-      <pre>home button</pre>
+      <pre>progress tracker</pre>
     </div>
   );
 };
