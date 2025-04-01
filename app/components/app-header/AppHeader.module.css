@@ -1,0 +1,52 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-6);
+
+  @media (min-width: 768px) {
+    gap: var(--spacing-12);
+  }
+}
+
+.logoIcon {
+  --logo-icon-size: 22px;
+  --logo-icon-color: var(--green-600);
+
+  width: var(--logo-icon-size);
+  height: var(--logo-icon-size);
+
+  display: block;
+  color: var(--logo-icon-color);
+
+  @media (min-width: 768px) {
+    --logo-icon-size: 44px;
+  }
+}
+
+.logoText {
+  --logo-text-width: 61.5px;
+  --logo-text-height: 11.5px;
+  --logo-text-color: var(--gray-900);
+
+  width: var(--logo-text-width);
+  height: var(--logo-text-height);
+
+  display: block;
+  color: var(--logo-text-color);
+
+  @media (min-width: 768px) {
+    --logo-text-width: 123px;
+    --logo-text-height: 23px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --logo-text-color: var(--foreground);
+  }
+}

@@ -1,15 +1,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --logo-green: #099250;
-  --logo-text: #101828;
+
+  --spacing-6: 6px;
+  --spacing-12: 12px;
+
+  --green-600: #099250;
+  --gray-900: #101828;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-    --logo-text: var(--foreground);
+    --logo-text-color: var(--foreground);
   }
 }
 
