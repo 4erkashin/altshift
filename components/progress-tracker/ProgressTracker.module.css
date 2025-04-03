@@ -1,0 +1,44 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  flex-grow: 1;
+  gap: var(--spacing-12);
+}
+
+.caption {
+  font-size: var(--font-size-l);
+  line-height: var(--line-height-l);
+  font-weight: 400;
+  color: var(--text-color-secondary);
+}
+
+.progressIcons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+}
+
+.progressIcon {
+  display: block;
+  width: 8px;
+  height: 8px;
+}
+
+.colorDefault {
+  color: var(--gray-900-24);
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--gray-300);
+  }
+}
+
+.colorActive {
+  color: var(--gray-900);
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--white);
+  }
+}

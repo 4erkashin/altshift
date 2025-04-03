@@ -1,19 +1,39 @@
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: var(--gray-900);
 
+  --spacing-4: 4px;
   --spacing-6: 6px;
   --spacing-12: 12px;
 
+  --white: #ffffff;
+
   --green-600: #099250;
+
+  --gray-25: #f2f4f7;
+  --gray-100: #d0d5dd;
+  --gray-300: #98a2b3;
+  --gray-400: #667085;
   --gray-900: #101828;
+  --gray-900-24: #1018283d;
+
+  --font-size-l: 16px;
+  @media (min-width: 768px) {
+    --font-size-l: 18px;
+  }
+
+  --line-height-l: 1.25;
+  @media (min-width: 768px) {
+    --line-height-l: 1.5;
+  }
+
+  --text-color-secondary: var(--gray-400);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --logo-text-color: var(--foreground);
+    --background: var(--gray-900);
+    --foreground: var(--white);
   }
 }
 
