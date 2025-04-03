@@ -16,8 +16,8 @@ const fixelText = localFont({
       style: 'normal',
     },
     {
-      path: '../fonts/FixelText-Bold.woff2',
-      weight: '700',
+      path: '../fonts/FixelText-SemiBold.woff2',
+      weight: '600',
       style: 'normal',
     },
   ],

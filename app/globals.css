@@ -5,7 +5,10 @@
   --spacing-10: 10px;
   --spacing-12: 12px;
   --spacing-16: 16px;
+  --spacing-18: 18px;
+  --spacing-20: 20px;
   --spacing-32: 32px;
+  --spacing-48: 48px;
   --spacing-120: 120px;
   --spacing-160: 160px;
 
@@ -17,6 +20,7 @@
   --white: #ffffff;
 
   --green-600: #099250;
+  --green-700: #087443;
 
   --gray-25: #f2f4f7;
   --gray-50: #eaecf0;
@@ -45,6 +49,11 @@
     --text-color-secondary: var(--gray-25);
   }
 
+  --font-size-m: 14px;
+  @media (min-width: 768px) {
+    --font-size-m: 16px;
+  }
+
   --font-size-l: 16px;
   @media (min-width: 768px) {
     --font-size-l: 18px;
@@ -53,6 +62,11 @@
   --font-size-xxl: 30px;
   @media (min-width: 768px) {
     --font-size-xxl: 48px;
+  }
+
+  --line-height-m: 1.25;
+  @media (min-width: 768px) {
+    --line-height-m: 1.5;
   }
 
   --line-height-l: 1.25;

@@ -1,0 +1,22 @@
+.root {
+  padding: var(--spacing-10) var(--spacing-18);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-8);
+
+  border: 1px solid var(--green-700);
+  background: var(--green-700);
+
+  font-size: var(--font-size-m);
+  font-weight: 600;
+  line-height: var(--line-height-m);
+
+  color: var(--white);
+}
+
+.icon {
+  width: var(--spacing-20);
+  height: var(--spacing-20);
+}
