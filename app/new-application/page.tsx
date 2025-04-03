@@ -1,7 +1,9 @@
+import { PageHeader } from '@/components/page-header';
+
 export default function Home() {
   return (
     <main>
-      <pre>PageHeader.tsx</pre>
+      <PageHeader />
       <pre>Form</pre>
       <pre>Generated result</pre>
     </main>

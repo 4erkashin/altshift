@@ -19,6 +19,7 @@
   --green-600: #099250;
 
   --gray-25: #f2f4f7;
+  --gray-50: #eaecf0;
   --gray-100: #d0d5dd;
   --gray-300: #98a2b3;
   --gray-400: #667085;
@@ -28,11 +29,30 @@
   --gray-900-24: #1018283d;
 
   --background: var(--white);
+  @media (prefers-color-scheme: dark) {
+    --background: var(--gray-900);
+  }
+
   --foreground: var(--gray-900);
+  @media (prefers-color-scheme: dark) {
+    --foreground: var(--white);
+  }
+
+  --text-color-primary: var(--foreground);
+
+  --text-color-secondary: var(--gray-400);
+  @media (prefers-color-scheme: dark) {
+    --text-color-secondary: var(--gray-25);
+  }
 
   --font-size-l: 16px;
   @media (min-width: 768px) {
     --font-size-l: 18px;
+  }
+
+  --font-size-xxl: 30px;
+  @media (min-width: 768px) {
+    --font-size-xxl: 48px;
   }
 
   --line-height-l: 1.25;
@@ -40,14 +60,12 @@
     --line-height-l: 1.5;
   }
 
-  --text-color-secondary: var(--gray-400);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--gray-900);
-    --foreground: var(--white);
+  --line-height-xxl: 1;
+  @media (min-width: 768px) {
+    --line-height-xxl: 1.25;
   }
+
+  --letter-spacing-narrow: -0.02em;
 }
 
 html {
@@ -61,7 +79,7 @@ body {
   overflow-x: hidden;
   padding: var(--padding-body);
 
-  color: var(--foreground);
+  color: var(--text-color-primary);
   background: var(--background);
 
   font-family: var(--font-fixel-text), sans-serif;
@@ -78,12 +96,6 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--font-fixel-display), sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
