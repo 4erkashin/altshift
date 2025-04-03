@@ -1,10 +1,11 @@
+import { BaseButton } from '@/components/base-button';
 import HomeIcon from './home-icon.svg';
 import styles from './HomeButton.module.css';
 
 export const HomeButton = () => {
   return (
-    <button className={styles.root} type="button">
+    <BaseButton className={styles.root}>
       <HomeIcon className={styles.icon} />
-    </button>
+    </BaseButton>
   );
 };
