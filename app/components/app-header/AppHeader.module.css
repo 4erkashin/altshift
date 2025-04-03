@@ -1,9 +1,14 @@
 .root {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--background);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  margin-bottom: var(--spacing-32);
+  padding: var(--spacing-16) 0 var(--spacing-32);
 }
 
 .logoBlock {

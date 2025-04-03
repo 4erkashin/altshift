@@ -1,0 +1,29 @@
+.root {
+  height: 200px;
+  padding: var(--spacing-16);
+  border-radius: var(--spacing-12);
+  background: var(--gray-25);
+}
+
+.text {
+  max-height: 138px;
+  overflow: hidden;
+  font-size: var(--font-size-l);
+  font-weight: 400;
+  line-height: var(--line-height-l);
+  color: var(--text-color-secondary);
+
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+.firstLine {
+  display: block;
+  margin-bottom: var(--spacing-8);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
