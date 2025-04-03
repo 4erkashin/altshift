@@ -19,6 +19,7 @@
 
   --white: #ffffff;
 
+  --green-50: #edfcf2;
   --green-600: #099250;
   --green-700: #087443;
 
@@ -59,6 +60,11 @@
     --font-size-l: 18px;
   }
 
+  --font-size-xl: 24px;
+  @media (min-width: 768px) {
+    --font-size-xl: 36px;
+  }
+
   --font-size-xxl: 30px;
   @media (min-width: 768px) {
     --font-size-xxl: 48px;
@@ -72,6 +78,11 @@
   --line-height-l: 1.25;
   @media (min-width: 768px) {
     --line-height-l: 1.5;
+  }
+
+  --line-height-xl: 1;
+  @media (min-width: 768px) {
+    --line-height-xl: 1.25;
   }
 
   --line-height-xxl: 1;

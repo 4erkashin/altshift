@@ -7,6 +7,10 @@
   gap: var(--spacing-12);
 }
 
+.vertical {
+  flex-direction: column-reverse;
+}
+
 .caption {
   font-size: var(--font-size-l);
   line-height: var(--line-height-l);
@@ -21,10 +25,16 @@
   gap: var(--spacing-4);
 }
 
-.progressIcon {
+.dotIcon {
   display: block;
-  width: 8px;
-  height: 8px;
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+}
+
+.dashIcon {
+  display: block;
+  width: var(--spacing-32);
+  height: var(--spacing-8);
 }
 
 .colorDefault {

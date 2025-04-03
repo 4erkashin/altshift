@@ -2,7 +2,7 @@
   padding: var(--spacing-10) var(--spacing-18);
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: var(--spacing-8);
 
