@@ -51,6 +51,8 @@
     --text-color-secondary: var(--gray-25);
   }
 
+  --font-size-s: 14px;
+
   --font-size-m: 14px;
   @media (min-width: 768px) {
     --font-size-m: 16px;
@@ -69,6 +71,11 @@
   --font-size-xxl: 30px;
   @media (min-width: 768px) {
     --font-size-xxl: 48px;
+  }
+
+  --line-height-s: 1.15;
+  @media (min-width: 768px) {
+    --line-height-s: 1.45;
   }
 
   --line-height-m: 1.25;
