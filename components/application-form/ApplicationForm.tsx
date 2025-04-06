@@ -1,0 +1,55 @@
+'use client';
+
+import { BaseButton } from '@/components/base-button';
+import { InputField } from '@/components/input-field/InputField';
+import { TextAreaField } from '@/components/textarea-field';
+import { ApplicationInput } from '@/lib/storage/useApplications';
+import { useForm, useWatch } from 'react-hook-form';
+
+import clsx from 'clsx';
+import { FormHTMLAttributes } from 'react';
+import styles from './ApplicationForm.module.css';
+
+type ApplicationFormProps = FormHTMLAttributes<HTMLFormElement> & {
+  defaultValues?: ApplicationInput;
+  onFormSubmit: (data: ApplicationInput) => void;
+};
+
+export const ApplicationForm = ({
+  defaultValues,
+  onFormSubmit,
+  className,
+  ...rest
+}: ApplicationFormProps) => {
+  const { register, control, handleSubmit } = useForm<ApplicationInput>({
+    defaultValues,
+  });
+
+  const details = useWatch({ name: 'details', control });
+
+  return (
+    <form
+      onSubmit={handleSubmit(onFormSubmit)}
+      className={clsx(styles.root, className)}
+      {...rest}
+    >
+      <InputField label="Job title" id="jobTitle" {...register('jobTitle')} />
+
+      <InputField label="Label" id="label" {...register('label')} />
+
+      <InputField label="I am good at…" id="skills" {...register('skills')} />
+
+      <TextAreaField
+        label="Additional details"
+        id="details"
+        maxLength={1200}
+        {...register('details')}
+        value={details}
+      />
+
+      <BaseButton className={styles.button} type="submit">
+        Generate Now
+      </BaseButton>
+    </form>
+  );
+};

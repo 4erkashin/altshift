@@ -1,6 +1,14 @@
 import { useLocalStorage } from 'react-use';
 
-type Application = {
+export type ApplicationInput = {
+  jobTitle: string;
+  label: string;
+  skills: string;
+  details: string;
+  result: string;
+};
+
+type Application = ApplicationInput & {
   id: string;
   createdAt: string;
 };
@@ -11,8 +19,9 @@ export function useApplications() {
     [],
   );
 
-  const createApplication = () => {
+  const createApplication = (data: ApplicationInput) => {
     const newApp: Application = {
+      ...data,
       id: crypto.randomUUID(),
       createdAt: new Date().toISOString(),
     };
@@ -22,8 +31,13 @@ export function useApplications() {
     return newApp.id;
   };
 
+  const getApplicationById = (id: string): Application | undefined => {
+    return (applications ?? []).find((app) => app.id === id);
+  };
+
   return {
     applications: applications ?? [],
     createApplication,
+    getApplicationById,
   };
 }

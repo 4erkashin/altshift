@@ -5,11 +5,29 @@ import Form from 'next/form';
 
 import { InputField } from '@/components/input-field/InputField';
 import { TextAreaField } from '@/components/textarea-field';
-import { useState } from 'react';
+import {
+  ApplicationInput,
+  useApplications,
+} from '@/lib/storage/useApplications';
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import styles from './page.module.css';
 
 export default function Home() {
   const [detailsValue, setDetailsValue] = useState('');
+  const { id } = useParams();
+  const { getApplicationById } = useApplications();
+  const [, setInitialValues] = useState<ApplicationInput | null>(null);
+
+  useEffect(() => {
+    if (typeof id === 'string') {
+      const app = getApplicationById(id);
+      if (app) {
+        setInitialValues(app);
+        console.log('Loaded application:', app);
+      }
+    }
+  }, [id, getApplicationById]);
 
   return (
     <main>
