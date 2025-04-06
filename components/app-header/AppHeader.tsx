@@ -7,13 +7,13 @@ import LogoText from './logo-text.svg';
 
 export const AppHeader = () => {
   return (
-    <div className={styles.root}>
+    <header className={styles.root}>
       <div className={styles.logoBlock}>
         <LogoIcon className={styles.logoIcon} />
         <LogoText className={styles.logoText} />
       </div>
       <ProgressTracker />
       <HomeButton />
-    </div>
+    </header>
   );
 };

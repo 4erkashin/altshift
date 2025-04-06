@@ -1,0 +1,1 @@
+export { GenratedResult } from './GenratedResult';
