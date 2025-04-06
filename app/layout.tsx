@@ -1,6 +1,6 @@
+import { AppHeader } from '@/components/app-header';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import { AppHeader } from './components/app-header';
 import './globals.css';
 
 const fixelText = localFont({
