@@ -3,10 +3,18 @@ import { ApplicationInput } from '@/lib/storage';
 export const generateResult = async (
   data: ApplicationInput,
 ): Promise<string> => {
-  console.log('[generateResult] input:', data);
+  const res = await fetch('/api/generate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
 
-  // simulate OpenAI response delay
-  await new Promise((r) => setTimeout(r, 3000));
+  if (!res.ok) {
+    throw new Error('Failed to generate result');
+  }
 
-  return `Generated response for "${data.jobTitle}" using skills: ${data.skills}`;
+  const { result } = await res.json();
+  return result;
 };

@@ -33,12 +33,12 @@ export const ApplicationForm = ({
 
   if (process.env.NODE_ENV === 'development') {
     // @ts-expect-error - dev-only mutation of global scope
-    globalThis.__DEBUG_fillForm = (n: number = 1) => {
+    globalThis.__DEBUG_fillForm = () => {
       reset({
-        jobTitle: `Job title ${n}`,
-        label: `Label ${n}`,
-        skills: `Good at ${n}`,
-        details: `Details ${n}`,
+        jobTitle: 'Product manager',
+        label: 'Apple',
+        skills: 'HTML, CSS and doing things in time',
+        details: `I want to help you build awesome solutions to accomplish your goals and vision. I can create intuitive and aesthetically pleasing devices that are very easy to use.`,
       });
     };
   }

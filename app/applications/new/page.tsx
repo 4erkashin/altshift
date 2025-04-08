@@ -17,7 +17,7 @@ export default function Home() {
 
   const { createApplication } = useApplications();
 
-  const [isGenerating, setIsGenerating] = useState(true);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   const mutation = useMutation({
     mutationFn: generateResult,
