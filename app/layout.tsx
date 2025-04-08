@@ -1,4 +1,5 @@
 import { AppHeader } from '@/components/app-header';
+import { QueryClientProviderWrapper } from '@/lib/query';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
@@ -58,9 +59,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${fixelText.variable} ${fixelDisplay.variable}`}>
-        <AppHeader />
-
-        <div>{children}</div>
+        <QueryClientProviderWrapper>
+          <AppHeader />
+          <div>{children}</div>
+        </QueryClientProviderWrapper>
       </body>
     </html>
   );

@@ -5,10 +5,7 @@ import Form from 'next/form';
 
 import { InputField } from '@/components/input-field/InputField';
 import { TextAreaField } from '@/components/textarea-field';
-import {
-  ApplicationInput,
-  useApplications,
-} from '@/lib/storage/useApplications';
+import { ApplicationInput, useApplications } from '@/lib/storage';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import styles from './page.module.css';

@@ -3,21 +3,24 @@
 import { BaseButton } from '@/components/base-button';
 import { InputField } from '@/components/input-field/InputField';
 import { TextAreaField } from '@/components/textarea-field';
-import { ApplicationInput } from '@/lib/storage/useApplications';
+import { ApplicationInput } from '@/lib/storage';
 import { useForm, useWatch } from 'react-hook-form';
 
 import clsx from 'clsx';
 import { FormHTMLAttributes } from 'react';
 import styles from './ApplicationForm.module.css';
 
-type ApplicationFormProps = FormHTMLAttributes<HTMLFormElement> & {
+type ApplicationFormProps = Omit<
+  FormHTMLAttributes<HTMLFormElement>,
+  'onSubmit'
+> & {
   defaultValues?: ApplicationInput;
-  onFormSubmit: (data: ApplicationInput) => void;
+  onSubmit: (data: ApplicationInput) => void;
 };
 
 export const ApplicationForm = ({
   defaultValues,
-  onFormSubmit,
+  onSubmit,
   className,
   ...rest
 }: ApplicationFormProps) => {
@@ -29,7 +32,7 @@ export const ApplicationForm = ({
 
   return (
     <form
-      onSubmit={handleSubmit(onFormSubmit)}
+      onSubmit={handleSubmit(onSubmit)}
       className={clsx(styles.root, className)}
       {...rest}
     >

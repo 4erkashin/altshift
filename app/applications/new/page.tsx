@@ -4,10 +4,7 @@ import { ApplicationForm } from '@/components/application-form/ApplicationForm';
 import { GenratedResult } from '@/components/generated-result';
 import { PageHeader } from '@/components/page-header';
 
-import {
-  ApplicationInput,
-  useApplications,
-} from '@/lib/storage/useApplications';
+import { ApplicationInput, useApplications } from '@/lib/storage';
 
 import { useRouter } from 'next/navigation';
 
@@ -30,7 +27,7 @@ export default function Home() {
     <main>
       <PageHeader className={styles.pageHeader}>New application</PageHeader>
 
-      <ApplicationForm className={styles.form} onFormSubmit={onSubmit} />
+      <ApplicationForm className={styles.form} onSubmit={onSubmit} />
 
       <GenratedResult />
     </main>

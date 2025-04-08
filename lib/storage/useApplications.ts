@@ -13,7 +13,7 @@ type Application = ApplicationInput & {
   createdAt: string;
 };
 
-export function useApplications() {
+export const useApplications = () => {
   const [applications, setApplications] = useLocalStorage<Application[]>(
     'applications',
     [],
@@ -40,4 +40,4 @@ export function useApplications() {
     createApplication,
     getApplicationById,
   };
-}
+};
