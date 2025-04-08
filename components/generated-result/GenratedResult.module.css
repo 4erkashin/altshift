@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   gap: var(--spacing-12, 12px);
 
   border-radius: var(--spacing-12);
@@ -21,4 +22,30 @@
 
 .copyButton {
   align-self: flex-end;
+}
+
+@keyframes bounceGlow {
+  0% {
+    transform: translateY(0) scale(1, 1);
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-24px) scale(0.96, 1.04);
+    opacity: 0.5;
+  }
+  60% {
+    transform: translateY(0) scale(1, 1); /* <- smooth landing */
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1, 1);
+    opacity: 1;
+  }
+}
+
+.ballIcon {
+  width: 240px;
+  height: 240px;
+  animation: bounceGlow 1.5s ease-in-out infinite;
+  transform-origin: center bottom;
 }

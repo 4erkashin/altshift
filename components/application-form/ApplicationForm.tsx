@@ -5,6 +5,7 @@ import { InputField } from '@/components/input-field/InputField';
 import { TextAreaField } from '@/components/textarea-field';
 import { ApplicationInput } from '@/lib/storage';
 import { useForm, useWatch } from 'react-hook-form';
+import SpinnerIcon from './spinner.svg';
 
 import clsx from 'clsx';
 import { FormHTMLAttributes } from 'react';
@@ -16,17 +17,31 @@ type ApplicationFormProps = Omit<
 > & {
   defaultValues?: ApplicationInput;
   onSubmit: (data: ApplicationInput) => void;
+  isPending?: boolean;
 };
 
 export const ApplicationForm = ({
   defaultValues,
   onSubmit,
   className,
+  isPending,
   ...rest
 }: ApplicationFormProps) => {
-  const { register, control, handleSubmit } = useForm<ApplicationInput>({
+  const { register, control, handleSubmit, reset } = useForm<ApplicationInput>({
     defaultValues,
   });
+
+  if (process.env.NODE_ENV === 'development') {
+    // @ts-expect-error - dev-only mutation of global scope
+    globalThis.__DEBUG_fillForm = (n: number = 1) => {
+      reset({
+        jobTitle: `Job title ${n}`,
+        label: `Label ${n}`,
+        skills: `Good at ${n}`,
+        details: `Details ${n}`,
+      });
+    };
+  }
 
   const details = useWatch({ name: 'details', control });
 
@@ -50,8 +65,12 @@ export const ApplicationForm = ({
         value={details}
       />
 
-      <BaseButton className={styles.button} type="submit">
-        Generate Now
+      <BaseButton className={styles.button} type="submit" disabled={isPending}>
+        {isPending ? (
+          <SpinnerIcon className={styles.spinnerIcon} />
+        ) : (
+          'Generate Now'
+        )}
       </BaseButton>
     </form>
   );

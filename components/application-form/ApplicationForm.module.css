@@ -5,6 +5,7 @@
 }
 
 .button {
+  min-height: 50px;
   padding: var(--spacing-12) var(--spacing-16);
 
   display: flex;
@@ -21,4 +22,20 @@
   font-size: var(--font-size-l);
   font-weight: 600;
   line-height: var(--line-height-l);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinnerIcon {
+  width: 24px;
+  height: 24px;
+
+  animation: spin 1.5s linear infinite;
 }

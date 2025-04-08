@@ -61,7 +61,7 @@ export default function RootLayout({
       <body className={`${fixelText.variable} ${fixelDisplay.variable}`}>
         <QueryClientProviderWrapper>
           <AppHeader />
-          <div>{children}</div>
+          {children}
         </QueryClientProviderWrapper>
       </body>
     </html>
