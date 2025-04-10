@@ -1,7 +1,7 @@
-import { ApplicationInput } from '@/lib/storage';
+import { ApplicationFormValues } from '@/components/application-form';
 
 export const generateResult = async (
-  data: ApplicationInput,
+  data: ApplicationFormValues,
 ): Promise<string> => {
   const res = await fetch('/api/generate', {
     method: 'POST',

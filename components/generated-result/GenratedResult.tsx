@@ -15,15 +15,11 @@ export const GenratedResult: FC<
       {isPending ? (
         <BallIcon className={styles.ballIcon} />
       ) : (
-        <>
-          {children ?? (
-            <p className={styles.text}>
-              Your personalized job application will appear here...
-            </p>
-          )}
-          <CopyToClipboardButton className={styles.copyButton} />
-        </>
+        <p className={styles.text}>
+          {children ?? 'Your personalized job application will appear here...'}
+        </p>
       )}
+      <CopyToClipboardButton className={styles.copyButton} />
     </div>
   );
 };

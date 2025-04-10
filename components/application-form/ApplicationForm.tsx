@@ -11,12 +11,14 @@ import clsx from 'clsx';
 import { FormHTMLAttributes } from 'react';
 import styles from './ApplicationForm.module.css';
 
+export type ApplicationFormValues = Omit<ApplicationInput, 'result'>;
+
 type ApplicationFormProps = Omit<
   FormHTMLAttributes<HTMLFormElement>,
   'onSubmit'
 > & {
-  defaultValues?: ApplicationInput;
-  onSubmit: (data: ApplicationInput) => void;
+  defaultValues?: ApplicationFormValues;
+  onSubmit: (data: ApplicationFormValues) => void;
   isPending?: boolean;
 };
 
@@ -27,9 +29,10 @@ export const ApplicationForm = ({
   isPending,
   ...rest
 }: ApplicationFormProps) => {
-  const { register, control, handleSubmit, reset } = useForm<ApplicationInput>({
-    defaultValues,
-  });
+  const { register, control, handleSubmit, reset } =
+    useForm<ApplicationFormValues>({
+      defaultValues,
+    });
 
   if (process.env.NODE_ENV === 'development') {
     // @ts-expect-error - dev-only mutation of global scope

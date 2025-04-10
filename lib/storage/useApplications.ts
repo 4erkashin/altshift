@@ -8,9 +8,10 @@ export type ApplicationInput = {
   result: string;
 };
 
-type Application = ApplicationInput & {
+export type Application = ApplicationInput & {
   id: string;
   createdAt: string;
+  updatedAt?: string;
 };
 
 export const useApplications = () => {
@@ -35,9 +36,19 @@ export const useApplications = () => {
     return (applications ?? []).find((app) => app.id === id);
   };
 
+  const setApplication = (updatedApp: Application) => {
+    const now = new Date().toISOString();
+    const updatedApplications = (applications ?? []).map((app) =>
+      app.id === updatedApp.id ? { ...updatedApp, updatedAt: now } : app,
+    );
+
+    setApplications(updatedApplications);
+  };
+
   return {
     applications: applications ?? [],
     createApplication,
     getApplicationById,
+    setApplication,
   };
 };

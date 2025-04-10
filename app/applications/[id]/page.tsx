@@ -1,49 +1,85 @@
 'use client';
 
+import {
+  ApplicationForm,
+  ApplicationFormValues,
+} from '@/components/application-form';
+import { GenratedResult } from '@/components/generated-result';
 import { PageHeader } from '@/components/page-header';
-import Form from 'next/form';
-
-import { InputField } from '@/components/input-field/InputField';
-import { TextAreaField } from '@/components/textarea-field';
-import { ApplicationInput, useApplications } from '@/lib/storage';
-import { useParams } from 'next/navigation';
+import { generateResult } from '@/lib/openai';
+import { Application, useApplications } from '@/lib/storage';
+import { useMutation } from '@tanstack/react-query';
+import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import styles from './page.module.css';
 
 export default function Home() {
-  const [detailsValue, setDetailsValue] = useState('');
   const { id } = useParams();
-  const { getApplicationById } = useApplications();
-  const [, setInitialValues] = useState<ApplicationInput | null>(null);
+  const router = useRouter();
+
+  const [application, setApplication] = useState<Application | null>(null);
+
+  const { getApplicationById, setApplication: updateApplication } =
+    useApplications();
+
+  const [isGenerating, setIsGenerating] = useState(false);
 
   useEffect(() => {
     if (typeof id === 'string') {
       const app = getApplicationById(id);
       if (app) {
-        setInitialValues(app);
+        setApplication(app);
         console.log('Loaded application:', app);
       }
     }
   }, [id, getApplicationById]);
 
+  const mutation = useMutation({
+    mutationFn: generateResult,
+  });
+
+  const onSubmit = (data: ApplicationFormValues) => {
+    if (!application) return;
+    setIsGenerating(true);
+
+    mutation.mutate(data, {
+      onSuccess: (result) => {
+        updateApplication({
+          ...application,
+          ...data,
+          result,
+        });
+      },
+      onSettled: () => {
+        setIsGenerating(false);
+        router.refresh();
+      },
+    });
+  };
+
   return (
     <main>
       <PageHeader className={styles.pageHeader}>New application</PageHeader>
 
-      <Form className={styles.form} action="">
-        <InputField label="Job title" id="jobTitle" />
-        <InputField label="Label" id="label" />
-        <InputField label="I am good at…" id="skills" />
+      {application && (
+        <>
+          <ApplicationForm
+            className={styles.form}
+            onSubmit={onSubmit}
+            isPending={isGenerating}
+            defaultValues={{
+              jobTitle: application.jobTitle,
+              label: application.label,
+              skills: application.skills,
+              details: application.details,
+            }}
+          />
 
-        <TextAreaField
-          label="Additional details"
-          id="details"
-          maxLength={1200}
-          value={detailsValue}
-          onChange={(e) => setDetailsValue(e.target.value)}
-        />
-      </Form>
-      <pre>Generated result</pre>
+          <GenratedResult isPending={isGenerating}>
+            {application.result}
+          </GenratedResult>
+        </>
+      )}
     </main>
   );
 }
