@@ -50,5 +50,6 @@ export const useApplications = () => {
     createApplication,
     getApplicationById,
     setApplication,
+    setApplications,
   };
 };
