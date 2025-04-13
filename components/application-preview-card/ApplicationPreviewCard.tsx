@@ -11,14 +11,19 @@ import styles from './ApplicationPreviewCard.module.css';
 export const ApplicationPreviewCard: FC<
   HTMLAttributes<HTMLDivElement> & {
     data: Application;
+    onDelete: (id: string) => void;
   }
-> = ({ className, data, ...restProps }) => {
+> = ({ className, data, onDelete, ...restProps }) => {
+  const handleDelete = () => {
+    onDelete(data.id);
+  };
+
   return (
     <div className={clsx(styles.root, className)} {...restProps}>
       <p className={styles.text}>{data.result}</p>
 
       <div className={styles.buttons}>
-        <DeleteApplicationButton />
+        <DeleteApplicationButton onDelete={handleDelete} />
         <CopyToClipboardButton />
       </div>
     </div>

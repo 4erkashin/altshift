@@ -45,11 +45,19 @@ export const useApplications = () => {
     setApplications(updatedApplications);
   };
 
+  const deleteApplication = (id: string) => {
+    const updatedApplications = (applications ?? []).filter(
+      (app) => app.id !== id,
+    );
+    setApplications(updatedApplications);
+  };
+
   return {
     applications: applications ?? [],
     createApplication,
     getApplicationById,
     setApplication,
     setApplications,
+    deleteApplication,
   };
 };

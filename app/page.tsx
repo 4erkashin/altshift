@@ -21,7 +21,7 @@ import styles from './page.module.css';
  */
 export default function Home() {
   const [mounted, setMounted] = useState(false);
-  const { applications } = useApplications();
+  const { applications, deleteApplication } = useApplications();
 
   useEffect(() => {
     setMounted(true);
@@ -30,6 +30,10 @@ export default function Home() {
   if (!mounted) {
     return null;
   }
+
+  const handleDelete = (id: string) => {
+    deleteApplication(id);
+  };
 
   return (
     <main>
@@ -42,7 +46,11 @@ export default function Home() {
 
       <div className={styles.applicationPreviews}>
         {applications.map((application) => (
-          <ApplicationPreviewCard key={application.id} data={application} />
+          <ApplicationPreviewCard
+            key={application.id}
+            data={application}
+            onDelete={handleDelete}
+          />
         ))}
       </div>
 
