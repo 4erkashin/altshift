@@ -12,14 +12,10 @@
   font-weight: 400;
   line-height: var(--line-height-l);
   color: var(--text-color-secondary);
+  white-space: pre-wrap;
 
   mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-}
-
-.firstLine {
-  display: block;
-  margin-bottom: var(--spacing-8);
 }
 
 .buttons {
