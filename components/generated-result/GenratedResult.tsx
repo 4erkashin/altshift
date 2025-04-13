@@ -19,7 +19,12 @@ export const GenratedResult: FC<
           {children ?? 'Your personalized job application will appear here...'}
         </p>
       )}
-      <CopyToClipboardButton className={styles.copyButton} />
+      {!isPending && children && (
+        <CopyToClipboardButton
+          className={styles.copyButton}
+          textToCopy={children as string}
+        />
+      )}
     </div>
   );
 };

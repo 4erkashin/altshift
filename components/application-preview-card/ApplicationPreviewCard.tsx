@@ -24,7 +24,7 @@ export const ApplicationPreviewCard: FC<
 
       <div className={styles.buttons}>
         <DeleteApplicationButton onDelete={handleDelete} />
-        <CopyToClipboardButton />
+        <CopyToClipboardButton textToCopy={data.result} />
       </div>
     </div>
   );
