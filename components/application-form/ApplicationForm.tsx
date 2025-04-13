@@ -1,13 +1,18 @@
+'use client';
+
+import clsx from 'clsx';
+import { FormHTMLAttributes } from 'react';
+import { useForm, useWatch } from 'react-hook-form';
+
 import { BaseButton } from '@/components/base-button';
 import { InputField } from '@/components/input-field/InputField';
 import { TextAreaField } from '@/components/textarea-field';
 import { ApplicationInput } from '@/lib/storage';
-import { useForm, useWatch } from 'react-hook-form';
+
+import styles from './ApplicationForm.module.css';
 import SpinnerIcon from './spinner.svg';
 
-import clsx from 'clsx';
-import { FormHTMLAttributes } from 'react';
-import styles from './ApplicationForm.module.css';
+
 
 export type ApplicationFormValues = Omit<ApplicationInput, 'result'>;
 

@@ -1,6 +1,10 @@
-import { BaseButton } from '@/components/base-button';
+'use client';
+
 import clsx from 'clsx';
 import { FC, HTMLAttributes, useState } from 'react';
+
+import { BaseButton } from '@/components/base-button';
+
 import CopyIcon from './copy.svg';
 import styles from './CopyToClipboardButton.module.css';
 

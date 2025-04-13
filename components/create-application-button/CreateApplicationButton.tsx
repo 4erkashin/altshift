@@ -1,7 +1,10 @@
-import { BaseButton } from '@/components/base-button';
+'use client';
+
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
 import { FC, HTMLAttributes } from 'react';
+
+import { BaseButton } from '@/components/base-button';
 
 import styles from './CreateApplicationButton.module.css';
 import PlusIcon from './plus-icon.svg';

@@ -1,5 +1,8 @@
+'use client';
+
 import clsx from 'clsx';
 import { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react';
+
 import styles from './BaseButton.module.css';
 
 export const BaseButton: FC<

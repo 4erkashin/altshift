@@ -1,10 +1,13 @@
-import { useApplications } from '@/lib/storage';
+'use client';
+
 import clsx from 'clsx';
 import { FC, HTMLAttributes } from 'react';
 
-import styles from './ProgressTracker.module.css';
+import { useApplications } from '@/lib/storage';
+
 import DashIcon from './dash.svg';
 import DotIcon from './dot.svg';
+import styles from './ProgressTracker.module.css';
 
 export const ProgressTracker: FC<
   HTMLAttributes<HTMLDivElement> & {

@@ -1,8 +1,11 @@
+'use client';
+
 import { ApplicationPreviewCard } from '@/components/application-preview-card';
 import { CreateApplicationButton } from '@/components/create-application-button';
 import { GoalHighlight } from '@/components/goal-highlight';
 import { PageHeader } from '@/components/page-header';
 import { useApplications } from '@/lib/storage';
+
 import styles from './page.module.css';
 
 export default function Home() {

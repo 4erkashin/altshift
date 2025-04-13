@@ -1,6 +1,7 @@
+import { NextResponse } from 'next/server';
+
 import { buildPrompt } from '@/lib/openai';
 import { openai } from '@/lib/openai/client';
-import { NextResponse } from 'next/server';
 
 export const POST = async (req: Request) => {
   const body = await req.json();

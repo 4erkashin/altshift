@@ -1,5 +1,8 @@
+'use client';
+
 import clsx from 'clsx';
 import { InputHTMLAttributes, forwardRef } from 'react';
+
 import styles from './InputField.module.css';
 
 type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {

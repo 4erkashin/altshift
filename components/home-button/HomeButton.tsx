@@ -1,5 +1,8 @@
-import { BaseButton } from '@/components/base-button';
+'use client';
+
 import { useRouter } from 'next/navigation';
+
+import { BaseButton } from '@/components/base-button';
 
 import HomeIcon from './home-icon.svg';
 import styles from './HomeButton.module.css';

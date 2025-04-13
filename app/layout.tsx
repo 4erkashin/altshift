@@ -1,7 +1,8 @@
-import { AppHeader } from '@/components/app-header';
-import { QueryClientProviderWrapper } from '@/lib/query';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+
+import { AppHeader } from '@/components/app-header';
+import { QueryClientProviderWrapper } from '@/lib/query';
 import './globals.css';
 
 const fixelText = localFont({

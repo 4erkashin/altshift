@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect } from 'react';
 import { createGlobalState } from 'react-use';
 
@@ -15,35 +17,44 @@ export type Application = ApplicationInput & {
   updatedAt?: string;
 };
 
-/**
- * Global state for applications using createGlobalState instead of Context because:
- * 1. It's specifically designed for this use case of synchronized state
- * 2. It's more concise than implementing a full Context solution
- * 3. It handles synchronization automatically across components
- * 4. It's a well-tested solution for this specific problem
- *
- * Using useState directly would create independent state instances per component,
- * leading to stale state issues when multiple components need to share the same data.
- */
-const useGlobalApplications = createGlobalState<Application[]>(() => {
-  if (typeof window === 'undefined') return [];
-  const stored = localStorage.getItem('applications');
-  return stored ? JSON.parse(stored) : [];
-});
+// Start with empty array to avoid hydration mismatch
+const useGlobalApplications = createGlobalState<Application[]>(() => []);
 
 export const useApplications = () => {
   const [applications, setApplications] = useGlobalApplications();
 
-  // Sync with localStorage
+  // Load data from localStorage after mount (client-side only)
   useEffect(() => {
-    localStorage.setItem('applications', JSON.stringify(applications));
+    if (typeof window !== 'undefined') {
+      try {
+        const stored = localStorage.getItem('applications');
+        if (stored) {
+          setApplications(JSON.parse(stored));
+        }
+      } catch (error) {
+        console.error('Failed to load applications from localStorage:', error);
+      }
+    }
+  }, [setApplications]);
+
+  // Save to localStorage whenever applications change
+  useEffect(() => {
+    if (typeof window !== 'undefined' && applications.length > 0) {
+      try {
+        localStorage.setItem('applications', JSON.stringify(applications));
+      } catch (error) {
+        console.error('Failed to save applications to localStorage:', error);
+      }
+    }
   }, [applications]);
 
   // Listen for storage events from other tabs
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const handleStorage = (e: StorageEvent) => {
-      if (e.key === 'applications') {
-        setApplications(e.newValue ? JSON.parse(e.newValue) : []);
+      if (e.key === 'applications' && e.newValue) {
+        setApplications(JSON.parse(e.newValue));
       }
     };
 

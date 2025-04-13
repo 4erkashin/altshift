@@ -1,5 +1,8 @@
+'use client';
+
 import clsx from 'clsx';
 import { FC, HtmlHTMLAttributes, PropsWithChildren, ReactNode } from 'react';
+
 import styles from './PageHeader.module.css';
 
 export const PageHeader: FC<

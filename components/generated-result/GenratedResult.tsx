@@ -1,9 +1,12 @@
-import { CopyToClipboardButton } from '@/components/copy-to-clipboard-button';
+'use client';
+
 import clsx from 'clsx';
 import { FC, HtmlHTMLAttributes, PropsWithChildren } from 'react';
 
-import styles from './GenratedResult.module.css';
+import { CopyToClipboardButton } from '@/components/copy-to-clipboard-button';
+
 import BallIcon from './ball.svg';
+import styles from './GenratedResult.module.css';
 
 export const GenratedResult: FC<
   PropsWithChildren<HtmlHTMLAttributes<HTMLDivElement>> & {

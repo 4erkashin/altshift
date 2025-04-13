@@ -1,6 +1,10 @@
-import { BaseButton } from '@/components/base-button';
+'use client';
+
 import clsx from 'clsx';
 import { FC, HTMLAttributes } from 'react';
+
+import { BaseButton } from '@/components/base-button';
+
 import DeleteIcon from './delete-icon.svg';
 import styles from './DeleteApplicationButton.module.css';
 

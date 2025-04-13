@@ -1,7 +1,10 @@
+'use client';
+
+import Link from 'next/link';
+
 import { HomeButton } from '@/components/home-button';
 import { ProgressTracker } from '@/components/progress-tracker';
 
-import Link from 'next/link';
 
 import styles from './AppHeader.module.css';
 import LogoIcon from './logo-icon.svg';

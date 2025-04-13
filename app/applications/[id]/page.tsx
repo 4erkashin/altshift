@@ -1,3 +1,9 @@
+'use client';
+
+import { useMutation } from '@tanstack/react-query';
+import { useParams, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
 import {
   ApplicationForm,
   ApplicationFormValues,
@@ -6,9 +12,7 @@ import { GenratedResult } from '@/components/generated-result';
 import { PageHeader } from '@/components/page-header';
 import { generateResult } from '@/lib/openai';
 import { Application, useApplications } from '@/lib/storage';
-import { useMutation } from '@tanstack/react-query';
-import { useParams, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+
 import styles from './page.module.css';
 
 export default function Home() {

@@ -5,6 +5,7 @@ import { forwardRef } from 'react';
 import TextareaAutosize, {
   type TextareaAutosizeProps,
 } from 'react-textarea-autosize';
+
 import styles from './TextAreaField.module.css';
 
 type TextAreaFieldProps = TextareaAutosizeProps & {

@@ -1,3 +1,5 @@
+'use client';
+
 import { CreateApplicationButton } from '@/components/create-application-button';
 import { ProgressTracker } from '@/components/progress-tracker';
 
