@@ -1,8 +1,7 @@
-'use client';
-
 import { CopyToClipboardButton } from '@/components/copy-to-clipboard-button';
 import { DeleteApplicationButton } from '@/components/delete-application-button';
 import { Application } from '@/lib/storage/useApplications';
+
 import clsx from 'clsx';
 import { FC, HTMLAttributes } from 'react';
 

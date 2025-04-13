@@ -1,5 +1,3 @@
-'use client';
-
 import { BaseButton } from '@/components/base-button';
 import clsx from 'clsx';
 import { FC, HTMLAttributes, useState } from 'react';

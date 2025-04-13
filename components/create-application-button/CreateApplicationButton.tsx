@@ -1,6 +1,4 @@
-'use client';
 import { BaseButton } from '@/components/base-button';
-
 import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
 import { FC, HTMLAttributes } from 'react';

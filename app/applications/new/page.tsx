@@ -1,5 +1,3 @@
-'use client';
-
 import {
   ApplicationForm,
   ApplicationFormValues,
@@ -34,7 +32,7 @@ export default function Home() {
         router.push(`/applications/${id}`);
       },
       onSettled: () => {
-        // We don’t unset isGenerating here because redirect will unload the page
+        // We don't unset isGenerating here because redirect will unload the page
         // and we want the spinner to be shown until the new page is loaded
       },
     });

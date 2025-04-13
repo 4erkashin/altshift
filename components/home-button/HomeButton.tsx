@@ -1,5 +1,3 @@
-'use client';
-
 import { BaseButton } from '@/components/base-button';
 import { useRouter } from 'next/navigation';
 

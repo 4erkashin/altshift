@@ -1,5 +1,3 @@
-'use client';
-
 import { BaseButton } from '@/components/base-button';
 import { InputField } from '@/components/input-field/InputField';
 import { TextAreaField } from '@/components/textarea-field';

@@ -1,3 +1,4 @@
+import { useApplications } from '@/lib/storage';
 import clsx from 'clsx';
 import { FC, HTMLAttributes } from 'react';
 
@@ -6,15 +7,24 @@ import DashIcon from './dash.svg';
 import DotIcon from './dot.svg';
 
 export const ProgressTracker: FC<
-  HTMLAttributes<HTMLDivElement> & { layout?: 'vertical' | 'horizontal' }
-> = ({ layout = 'horizontal' }) => {
+  HTMLAttributes<HTMLDivElement> & {
+    layout?: 'vertical' | 'horizontal';
+    total?: number;
+  }
+> = ({ layout = 'horizontal', total = 5 }) => {
+  const { applications } = useApplications();
+  const totalApplications = applications.length;
+
   const getIcon = (className: string) => {
     const Component = layout === 'vertical' ? DashIcon : DotIcon;
     const baseClass = layout === 'vertical' ? styles.dashIcon : styles.dotIcon;
     return <Component className={clsx(baseClass, className)} />;
   };
 
-  const text = layout === 'vertical' ? '3 of 5 generated' : '3/5 generated';
+  const text =
+    layout === 'vertical'
+      ? `${totalApplications} of ${total} generated`
+      : `${totalApplications}/${total} generated`;
 
   return (
     <div
@@ -23,11 +33,15 @@ export const ProgressTracker: FC<
       <span className={styles.caption}>{text}</span>
 
       <div className={styles.progressIcons}>
-        {getIcon(styles.colorActive)}
-        {getIcon(styles.colorActive)}
-        {getIcon(styles.colorActive)}
-        {getIcon(styles.colorDefault)}
-        {getIcon(styles.colorDefault)}
+        {Array.from({ length: total }).map((_, index) => (
+          <div key={index}>
+            {getIcon(
+              index < totalApplications
+                ? styles.colorActive
+                : styles.colorDefault,
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );
